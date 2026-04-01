@@ -16,8 +16,6 @@ eval_splits:
 
 max_train_samples: null
 max_eval_samples: null
-cdm_toolkit_path: ./external/UniMERNet/cdm
-cdm_pools: 8
 shuffle_train: true
 seed: 42
 

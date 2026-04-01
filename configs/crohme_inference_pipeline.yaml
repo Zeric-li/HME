@@ -11,8 +11,6 @@ eval_splits:
   - "2019"
 
 max_eval_samples: null
-cdm_toolkit_path: ./external/UniMERNet/cdm
-cdm_pools: 8
 seed: 42
 
 system_prompt: >-
