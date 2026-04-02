@@ -1,6 +1,6 @@
-# Qwen3-VL HME LoRA MVP
+# Qwen-VL HME LoRA MVP
 
-A minimal pure-Python project for supervised LoRA fine-tuning of `Qwen/Qwen3-VL-4B-Instruct` on handwritten mathematical expression (HME) transcription.
+A minimal pure-Python project for supervised LoRA fine-tuning of Qwen VL models on handwritten mathematical expression (HME) transcription.
 
 ## Scope
 
@@ -13,6 +13,7 @@ This project is intentionally small and direct:
 - explicit normalization and evaluator modules
 
 The default dataset target is `Neeze/CROHME-full` from Hugging Face.
+The current training and inference backend supports `Qwen2-VL`, `Qwen2.5-VL`, and `Qwen3-VL` model IDs.
 
 ## Install
 
@@ -28,15 +29,15 @@ pip install -U "git+https://github.com/huggingface/transformers"
 
 ## Colab
 
-Use [notebooks/crohme_colab_quickstart.ipynb](notebooks/crohme_colab_quickstart.ipynb) to run either pipeline in Google Colab with a GPU runtime.
+Use [notebooks/crohme_colab_quickstart.ipynb](notebooks/crohme_colab_quickstart.ipynb) to run the full Colab demo in a GPU runtime.
 
-Minimal Colab flow:
+Colab demo flow:
 
 1. Open the notebook in a GPU runtime.
-2. Choose `TASK = "inference_only"` or `TASK = "lora_train_eval"`.
+2. Optionally adjust the sample caps and output root in the parameter cell.
 3. Run all cells.
 
-The notebook installs the Python dependencies for this repo, writes `configs/colab_<task>.yaml`, runs the matching pipeline script under `scripts/`, then calls a visualization helper that generates and displays the result figures.
+The notebook clones `main`, installs the dependencies, writes Colab-safe configs for both pipelines, runs the baseline inference pipeline and the LoRA train+eval pipeline, then generates visualizations and a side-by-side comparison of the aggregated results. The default Colab config cell is aligned with the current pipeline YAML defaults and can be edited directly in the notebook.
 
 ## Train
 

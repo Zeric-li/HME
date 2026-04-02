@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+export PYTHONUNBUFFERED=1
 
 CONFIG_PATH="${1:-configs/crohme_inference_pipeline.yaml}"
 

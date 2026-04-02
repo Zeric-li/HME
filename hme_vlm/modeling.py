@@ -4,7 +4,12 @@ from pathlib import Path
 
 import torch
 from peft import LoraConfig, PeftModel, PeftConfig, get_peft_model
-from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration, Qwen3VLForConditionalGeneration
+from transformers import (
+    AutoProcessor,
+    Qwen2VLForConditionalGeneration,
+    Qwen2_5_VLForConditionalGeneration,
+    Qwen3VLForConditionalGeneration,
+)
 
 
 def resolve_torch_dtype(name: str) -> torch.dtype:
@@ -32,6 +37,8 @@ def resolve_vl_model_class(model_id: str):
         return Qwen3VLForConditionalGeneration
     if "qwen2.5-vl" in model_id_lower:
         return Qwen2_5_VLForConditionalGeneration
+    if "qwen2-vl" in model_id_lower:
+        return Qwen2VLForConditionalGeneration
     raise ValueError(f"Unsupported VLM family for model_id: {model_id}")
 
 
